@@ -261,11 +261,18 @@ The src/ folder with the React/Vite code is not added to the repository yet.
 
 21. References
 Boduch, A. and Derks, R., 2023. React and React Native: Build cross-platform JavaScript applications with native power for mobile, web and desktop. 4th ed. Birmingham: Packt Publishing.
+
 Eisenberg, A., 2022. Learning React Native: Building Native Mobile Apps with JavaScript. 2nd ed. Sebastopol: O'Reilly Media.
+
 Facebook Inc., 2024. React Native: Learn once, write anywhere. Available at: https://reactnative.dev/docs/getting-started [Accessed 12 October 2026].
+
 Figma, Inc., 2024. Figma: Collaborative interface design tool. Available at: https://www.figma.com/ [Accessed 12 October 2026].
+
 diagrams.net, 2024. draw.io: Diagramming and whiteboarding software. Available at: https://www.diagrams.net/ [Accessed 12 October 2026].
+
 Google, 2024. Material Design 3. Available at: https://m3.material.io/ [Accessed 12 October 2026].
+
 Apple Inc., 2024. Human Interface Guidelines. Available at: https://developer.apple.com/design/human-interface-guidelines/ [Accessed 12 October 2026].
+
 Walker, J.R., 2021. The Restaurant: From Concept to Operation. 8th ed. Hoboken: John Wiley & Sons.
 Biørn-Hansen, A., Grønli, T. and Ghinea, G., 2020. A survey and taxonomy of core concepts and research challenges in cross-platform mobile development. ACM Computing Surveys, 53(5), pp.1-39.
