@@ -3,10 +3,14 @@ NALA: Luxury Fine-Dining Menu & Ordering App
 A black and gold menu management & ordering application for a luxury French fine dining restaurant called NALA. It supersedes the paper menu with a quick, mobile-first application for staff to use to navigate the menu, organize food and beverages and order multiple items on a single cart.
 
 	
-Name	Hlompho Muzi Xolo 
-Student Number	ST10476575
-Unit	MAST5112 (Portfolio of Evidence)
-Repository	https://github.com/44Xolo/NALA-ASSIGNMENT-1
+Name	Hlompho Muzi Xolo.
+Student Number	ST10476575.
+Unit	MAST5112 (Portfolio of Evidence).
+Repository	https://github.com/44Xolo/NALA-ASSIGNMENT-1.
+
+Youtube Link 
+https://youtube.com/shorts/nESHh-IQ8Hs?feature=share
+
 
 1. Project Overview
 NALA is a fine-dining, classic French restaurant which offers luxury cuisine. The menu was still in paper form which was slow to change, difficult to organise by course and easily lost. This project aims to replace it with a digital application that the owner, head chef and kitchen staff can access, using their mobile phone or tablet.
