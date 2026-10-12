@@ -4,8 +4,11 @@ A black and gold menu management & ordering application for a luxury French fine
 
 	
 Name	Hlompho Muzi Xolo.
+
 Student Number	ST10476575.
+
 Unit	MAST5112 (Portfolio of Evidence).
+
 Repository	https://github.com/44Xolo/NALA-ASSIGNMENT-1.
 
 Youtube Link 
