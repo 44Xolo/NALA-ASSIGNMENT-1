@@ -1,163 +1,76 @@
+# NALA Menu Manager
 
-# NALA: Luxury Fine-Dining Menu & Ordering App  
+NALA Menu Manager is a responsive browser app for maintaining a restaurant menu. Staff can browse dishes, search and filter the menu, update availability, manage menu items, and review basic pricing statistics.
 
-A refined black-and-gold mobile-first menu management and ordering app designed for **NALA**, a luxury French fine-dining restaurant. This app replaces the traditional paper menu, giving staff a faster, more reliable way to browse dishes, manage items, and place multi-dish orders directly from one cart.  
+This project was built for the MAST5112 Portfolio of Evidence. It uses React, TypeScript, and Vite; it is a web app, not a React Native or Expo app.
+
+## Project details
 
 | | |
 |---|---|
-| **Name** | Hlompho Muzi Xolo |
-| **Student Number** | ST10476575 |
-| **Module Name** | MAST5112 (Portfolio of Evidence) |
-| **Repository** | [https://github.com/44Xolo/NALA-ASSIGNMENT-1](https://github.com/44Xolo/NALA-ASSIGNMENT-1) |
+| Student | Hlompho Muzi Xolo |
+| Student number | ST10476575 |
+| Module | MAST5112 — Portfolio of Evidence |
+| Repository | [44Xolo/NALA-ASSIGNMENT-1](https://github.com/44Xolo/NALA-ASSIGNMENT-1) |
+| Demo | [Watch the app demo](https://youtube.com/shorts/nESHh-IQ8Hs?feature=share) |
 
----
+## What the app can do
 
-## Demo Video  
- Watch the demo on YouTube: [https://youtube.com/shorts/nESHh-IQ8Hs?feature=share] 
+- Browse the sample menu and open a dish for its details.
+- Search by dish name and filter by course.
+- Add, edit, and delete menu items, with validation and a confirmation before deletion.
+- Undo a deletion and restore the original sample menu.
+- View menu totals, average prices, availability, and price ranges.
+- Save menu changes in the browser so they remain available on the same device.
 
----
+## Run locally
 
-## 1. Project Overview  
+Install [Node.js](https://nodejs.org/) and npm, then run:
 
-NALA is a fine-dining restaurant specializing in classic French cuisine. Previously, the menu was paper-based, which made updates slow, organization difficult, and information easy to misplace. This project introduces a digital solution that allows the owner, head chef, and kitchen staff to manage the menu seamlessly from a phone or tablet.  
+```sh
+npm install
+npm run dev
+```
 
-The project consists of two parts:  
-1. **Design** – documented in Word, including scenario analysis, annotated screen designs, flow diagrams, and component planning.  
-2. **Working App** – a browser-based prototype (`nala-preview.html`) enhanced with drinks, a multi-dish cart, a Settings page, and Google sign-in.  
+Open the local URL printed by Vite. The layout is designed to work on both narrow and desktop browser screens.
 
----
+## Checks
 
-## 2. Scenario Analysis  
+```sh
+npm run typecheck
+npm test
+npm run build
+```
 
-- **Users:**  
-  - *Primary:* Christoffel (restaurant owner) and the Head Chef (admin users).  
-  - *Secondary:* Kitchen managers and sous-chefs who reference the menu during service.  
+The test suite covers menu search and filtering, statistics, and form validation.
 
-- **Purpose:**  
-  Replace the error-prone paper menu with a mobile tool that allows staff to add, view, update, and manage dishes instantly.  
+## Project structure
 
-- **Data Stored:**  
-  Each `MenuItem` includes: ID, name, description, course type, price, ingredients, dietary info, prep time, availability, and timestamps.  
+```text
+src/
+  components/  Shared interface components
+  data/        Sample menu data
+  hooks/       Menu state and filtering
+  screens/     Menu, detail, form, management, and statistics views
+  utils/       Formatting, filtering, statistics, and validation
+  types.ts     Shared TypeScript types
+public/images/ Dish and restaurant images
+```
 
-- **Core Functions:**  
-  1. Add menu items  
-  2. View items in a grid  
-  3. Edit/update items  
-  4. Filter by course and search by name  
+## Data and limitations
 
-- **Usability Requirements:**  
-  - *Consistency & simplicity:* unified theme, typography, and navigation; large touch targets; add a dish in under three steps with clear feedback.  
-  - *Error prevention & efficiency:* input validation, delete confirmations, high contrast, offline viewing, and smooth scrolling.  
+Menu data and the sign-in name are stored in the browser's local storage. They are not shared across browsers or devices. The sign-in screen is a convenience for personalising the greeting; it does not provide account authentication. If browser storage is unavailable, the app continues for the current session and logs a warning in the browser console.
 
----
+This version does not include ordering, a cart, a backend, or React Native screens. New menu items do not support photo uploads.
 
-## 4. Changelog  
+## References
 
-### Added Features (new, not in original design)  
-- Drinks menu with illustrations (Kir Royale, Bordeaux Rouge, Citron Pressé, Café au Lait).  
-- Multi-dish cart with quantity controls.  
-- “Your Order” page with totals and item management.  
-- Multi-item order confirmation screen.  
-- Settings page with account and menu preferences.  
-- Name field at login for personalized greetings.  
-- Persistent storage via `localStorage`.  
-- Accessibility improvements (labels, ARIA roles, keyboard navigation).  
-
-### Changed Features (different from original design)  
-- Platform: built as a browser app instead of React Native.  
-- Greeting: “Welcome back, <name>” instead of “Good evening, Christoffel.”  
-- Google sign-in: “Continue with Google” instead of “Sign up by Google.”  
-- Filters: added Drinks and a bottom sheet filter.  
-- Dish card button shows quantity and disables unavailable dishes.  
-- Dish Detail: merged “Order Now” into cart flow; added course and prep time.  
-- Delete moved to Manage Menu list with confirmation dialog.  
-- Add moved to a bottom tab instead of Manage Menu button.  
-- Manage Menu redesigned as a compact text list.  
-- Confirmation dialogs built in-app instead of native alerts.  
-
-### Not Yet Built (still pending)  
-- Create Account screen with full name and confirm password.  
-- Password show/hide toggle.  
-- “Deliver to” selector and “See all” link.  
-- Order tracking with live status.  
-- Star ratings and ingredient chips.  
-- Dietary info and timestamps.  
-- Profile avatar in Manage Menu.  
-- Dish photos for new items.  
-
----
-
-## 5. Features  
-
-- **Sign-in:** Name, email, password, or Google sign-in.  
-- **Menu:** Two-column grid with filters, search, and detailed dish pages.  
-- **Ordering:** Cart with quantity controls, totals, and confirmation screen.  
-- **Menu Management:** Add/Edit forms with validation, Manage Menu list with edit/delete.  
-- **Settings:** Change name, hide unavailable dishes, reset menu, sign out, clear data.  
-
----
-
-## 7. Sample Menu  
-
-| Dish | Course | Price |
-|---|---|---|
-| Quiche Lorraine | Starter | R145 |
-| Croissant | Starter | R85 |
-| Coq au Vin | Main | R295 |
-| Cassoulet Savoureux | Main | R310 |
-| Ratatouille | Main | R185 |
-| Crème Brûlée | Dessert | R120 |
-| Kir Royale | Drink | R110 |
-| Bordeaux Rouge | Drink | R98 |
-| Citron Pressé | Drink | R55 |
-| Café au Lait | Drink | R48 |
-
----
-
-## 20. Known Limitations  
-
-- Orders are not sent to a backend system.  
-- No real account system (login accepts any credentials).  
-- Cart is session-based only.  
-- Data is stored locally, not shared across devices.  
-- Google sign-in is simulated in the preview.  
-- Several design features remain unimplemented.  
-
----
-
-## 21. Roadmap  
-
-- Add full React/TypeScript source (`src/`).  
-- Build Create Account and real authentication.  
-- Align menu content with design wireframes.  
-- Backend integration for orders and tracking.  
-- Add ratings, dietary info, timestamps.  
-- Implement “Deliver to” selector and order notes.  
-- Enable shared menu storage across devices.  
-- Real Google sign-in with server verification.  
-- Add drink photos and port to React Native.  
-- Automated testing.  
-
----
-
-## References  
-
-- Boduch, A. and Derks, R. (2023) *React and React Native: Build cross‑platform JavaScript applications with native power for mobile, web and desktop.* 4th edn. Birmingham: Packt Publishing.  
-
-- Eisenberg, A. (2022) *Learning React Native: Building Native Mobile Apps with JavaScript.* 2nd edn. Sebastopol: O’Reilly Media.  
-
-- Facebook Inc. (2024) *React Native: Learn once, write anywhere.* Available at: `https://reactnative.dev/docs/getting-started` [(reactnative.dev in Bing)](https://www.bing.com/search?q="https%3A%2F%2Freactnative.dev%2Fdocs%2Fgetting-started") (Accessed: 12 October 2026).  
-
-- Figma Inc. (2024) *Figma: Collaborative interface design tool.* Available at: [https://www.figma.com/](https://www.figma.com/) (Accessed: 12 October 2026).  
-
-- diagrams.net (2024) *draw.io: Diagramming and whiteboarding software.* Available at: [https://www.diagrams.net/](https://www.diagrams.net/) (Accessed: 12 October 2026).  
-
-- Google (2024) *Material Design 3.* Available at: [https://m3.material.io/](https://m3.material.io/) (Accessed: 12 October 2026).  
-
-- Apple Inc. (2024) *Human Interface Guidelines.* Available at: `https://developer.apple.com/design/human-interface-guidelines/` [(developer.apple.com in Bing)](https://www.bing.com/search?q="https%3A%2F%2Fdeveloper.apple.com%2Fdesign%2Fhuman-interface-guidelines%2F") (Accessed: 12 October 2026).  
-
-- Walker, J.R. (2021) *The Restaurant: From Concept to Operation.* 8th edn. Hoboken: John Wiley & Sons.  
-
-- Biørn‑Hansen, A., Grønli, T. and Ghinea, G. (2020) ‘A survey and taxonomy of core concepts and research challenges in cross‑platform mobile development’, *ACM Computing Surveys*, 53(5), pp. 1–39.  
-
----
+- Boduch, A. and Derks, R. (2023). *React and React Native: Build cross-platform JavaScript applications with native power for mobile, web and desktop*. 4th ed. Packt Publishing.
+- Eisenberg, A. (2022). *Learning React Native: Building Native Mobile Apps with JavaScript*. 2nd ed. O'Reilly Media.
+- React Native. [Documentation](https://reactnative.dev/docs/getting-started). Accessed 12 October 2026.
+- Google. [Material Design 3](https://m3.material.io/). Accessed 12 October 2026.
+- Apple. [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/). Accessed 12 October 2026.
+- Figma. [Figma](https://www.figma.com/). Accessed 12 October 2026.
+- diagrams.net. [Diagramming and whiteboarding](https://www.diagrams.net/). Accessed 12 October 2026.
+- Walker, J. R. (2021). *The Restaurant: From Concept to Operation*. 8th ed. Wiley.
+- Biørn-Hansen, A., Grønli, T. and Ghinea, G. (2020). 'A survey and taxonomy of core concepts and research challenges in cross-platform mobile development'. *ACM Computing Surveys*, 53(5), pp. 1–39.
