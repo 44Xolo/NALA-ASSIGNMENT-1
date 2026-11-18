@@ -1,7 +1,10 @@
 import { useCallback, useState } from 'react';
+import { signOut as firebaseSignOut } from '@firebase/auth';
 import BottomNav from './components/BottomNav';
 import Toast from './components/Toast';
+import { useFirebaseAuth } from './hooks/useFirebaseAuth';
 import { useMenu } from './hooks/useMenu';
+import { getFirebaseAuthErrorMessage } from './utils/firebaseAuthErrors';
 import DetailScreen from './screens/DetailScreen';
 import FormScreen from './screens/FormScreen';
 import HomeScreen from './screens/HomeScreen';
@@ -10,46 +13,37 @@ import ManageScreen from './screens/ManageScreen';
 import StatsScreen from './screens/StatsScreen';
 import type { MenuItemInput, Screen, ToastKind, ToastState } from './types';
 
-const USER_KEY = 'nala.user';
-
-function loadUser(): string {
-  try {
-    return localStorage.getItem(USER_KEY) ?? '';
-  } catch (error) {
-    console.warn('Unable to read the saved sign-in name from browser storage.', error);
-    return '';
-  }
-}
-
 export default function App() {
   const menu = useMenu();
-  const [userName, setUserName] = useState(loadUser);
+  const { auth, user, loading: authLoading, error: authError } = useFirebaseAuth();
   const [screen, setScreen] = useState<Screen>({ name: 'home' });
   const [toast, setToast] = useState<ToastState | null>(null);
 
   const notify = (message: string, kind: ToastKind = 'success') => setToast({ message, kind });
   const dismissToast = useCallback(() => setToast(null), []);
 
-  const login = (name: string) => {
+  const signOut = async () => {
+    if (!auth) return;
+
     try {
-      localStorage.setItem(USER_KEY, name);
+      await firebaseSignOut(auth);
+      setScreen({ name: 'home' });
     } catch (error) {
-      console.warn('Unable to save the sign-in name. It will only last for this session.', error);
+      notify(getFirebaseAuthErrorMessage(error), 'error');
     }
-    setUserName(name);
   };
 
-  const signOut = () => {
-    try {
-      localStorage.removeItem(USER_KEY);
-    } catch (error) {
-      console.warn('Unable to remove the saved sign-in name from browser storage.', error);
-    }
-    setUserName('');
-    setScreen({ name: 'home' });
-  };
+  if (authLoading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center text-white/70" role="status">
+        Checking sign-in…
+      </div>
+    );
+  }
 
-  if (!userName) return <LoginScreen onLogin={login} />;
+  if (!user) return <LoginScreen auth={auth} authError={authError} />;
+
+  const userName = user.displayName || user.phoneNumber || user.email || 'NALA staff';
 
   const find = (id: string) => menu.items.find((i) => i.id === id);
   const go = (s: Screen) => setScreen(s);
@@ -63,7 +57,7 @@ export default function App() {
             userName={userName}
             onOpen={(id) => go({ name: 'detail', id })}
             onAdd={() => go({ name: 'add' })}
-            onSignOut={signOut}
+            onSignOut={() => void signOut()}
           />
         );
       case 'detail':
