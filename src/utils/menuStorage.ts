@@ -1,4 +1,7 @@
 import { COURSES, type MenuItem } from '../types';
+import { SEED_MENU } from '../data/seedMenu';
+
+const seedImages = new Map(SEED_MENU.map((item) => [item.id, item.image]));
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -34,4 +37,11 @@ export function parseStoredMenu(value: unknown): MenuItem[] | null {
   const items = value.filter(isMenuItem);
   if (items.length !== value.length) return null;
   return new Set(items.map((item) => item.id)).size === items.length ? items : null;
+}
+
+export function restoreMissingSeedImages(items: MenuItem[]): MenuItem[] {
+  return items.map((item) => {
+    const image = seedImages.get(item.id);
+    return !item.image && image ? { ...item, image } : item;
+  });
 }

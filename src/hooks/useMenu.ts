@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { SEED_MENU } from '../data/seedMenu';
 import type { MenuItem, MenuItemInput } from '../types';
-import { parseStoredMenu } from '../utils/menuStorage';
+import { parseStoredMenu, restoreMissingSeedImages } from '../utils/menuStorage';
 
 const STORAGE_KEY = 'nala.menu.v3';
 
@@ -11,7 +11,7 @@ function loadMenu(): MenuItem[] {
     if (raw) {
       const parsed: unknown = JSON.parse(raw);
       const menu = parseStoredMenu(parsed);
-      if (menu) return menu;
+      if (menu) return restoreMissingSeedImages(menu);
       console.warn('Saved menu data is invalid. The sample menu will be used instead.');
     }
   } catch (error) {

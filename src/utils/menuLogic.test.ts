@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { SEED_MENU } from '../data/seedMenu';
 import { filterMenu } from './filter';
-import { parseStoredMenu } from './menuStorage';
+import { parseStoredMenu, restoreMissingSeedImages } from './menuStorage';
 import { computeStats } from './stats';
 import { emptyForm, validateForm } from './validation';
 
@@ -43,6 +43,14 @@ describe('parseStoredMenu', () => {
   it('rejects malformed entries and duplicate IDs', () => {
     expect(parseStoredMenu([{ id: 'broken' }])).toBeNull();
     expect(parseStoredMenu([SEED_MENU[0], { ...SEED_MENU[0] }])).toBeNull();
+  });
+
+  it('restores missing images for saved sample dishes without changing custom items', () => {
+    const savedSample = SEED_MENU.map((item) => ({ ...item, image: undefined }));
+    const customItem = { ...SEED_MENU[0], id: 'custom-item', image: undefined };
+
+    expect(restoreMissingSeedImages(savedSample)).toEqual(SEED_MENU);
+    expect(restoreMissingSeedImages([customItem])).toEqual([customItem]);
   });
 });
 
