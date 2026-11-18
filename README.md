@@ -1,8 +1,8 @@
 # NALA Menu Manager
 
-NALA Menu Manager is a responsive browser app for maintaining a restaurant menu. Staff can browse dishes, search and filter the menu, update availability, manage menu items, and review basic pricing statistics.
+NALA Menu Manager is a browser app I built for the MAST5112 Portfolio of Evidence. It gives restaurant staff a simple way to browse a menu, find dishes, keep item details up to date, and check a few useful pricing and availability figures.
 
-This project was built for the MAST5112 Portfolio of Evidence. It uses React, TypeScript, and Vite; it is a web app, not a React Native or Expo app.
+The app is built with React, TypeScript, and Vite. It runs in a web browser; it is not a React Native or Expo app.
 
 ## Project details
 
@@ -14,16 +14,17 @@ This project was built for the MAST5112 Portfolio of Evidence. It uses React, Ty
 | Repository | [44Xolo/NALA-ASSIGNMENT-1](https://github.com/44Xolo/NALA-ASSIGNMENT-1) |
 | Demo | [Watch the app demo](https://youtube.com/shorts/nESHh-IQ8Hs?feature=share) |
 
-## What the app can do
+## What you can do
 
-- Browse the sample menu and open a dish for its details.
-- Search by dish name and filter by course.
-- Add, edit, and delete menu items, with validation and a confirmation before deletion.
-- Undo a deletion and restore the original sample menu.
-- View menu totals, average prices, availability, and price ranges.
-- Save menu changes in the browser so they remain available on the same device.
+- Browse the sample dishes and open any item to see its details.
+- Search by dish name and filter the list by course.
+- Add and edit dishes, including their availability, with form validation.
+- Delete a dish after confirming, or undo the deletion.
+- Restore the original sample menu.
+- Review menu totals, average prices, prices by course, availability, and the least and most expensive dishes.
+- Keep menu changes in local browser storage on the same device.
 
-## Run locally
+## Run the app
 
 Install [Node.js](https://nodejs.org/) and npm, then run:
 
@@ -32,9 +33,9 @@ npm install
 npm run dev
 ```
 
-Open the local URL printed by Vite. The layout is designed to work on both narrow and desktop browser screens.
+Open the local address printed by Vite. The layout is designed for both narrow and desktop browser screens.
 
-## Checks
+## Run the checks
 
 ```sh
 npm run typecheck
@@ -42,7 +43,7 @@ npm test
 npm run build
 ```
 
-The test suite covers menu search and filtering, statistics, and form validation.
+The tests cover menu search and filtering, statistics, saved menu data, and form validation.
 
 ## Project structure
 
@@ -59,9 +60,24 @@ public/images/ Dish and restaurant images
 
 ## Data and limitations
 
-Menu data and the sign-in name are stored in the browser's local storage. They are not shared across browsers or devices. The sign-in screen is a convenience for personalising the greeting; it does not provide account authentication. If browser storage is unavailable, the app continues for the current session and logs a warning in the browser console.
+Menu data and the sign-in name are saved in the browser's local storage. They are only available in that browser on that device; the app does not sync data between users or devices. The sign-in screen saves a name to personalise the greeting, but it is not account authentication. If browser storage is unavailable, the app continues for the current session and logs a warning in the browser console.
 
-This version does not include ordering, a cart, a backend, or React Native screens. New menu items do not support photo uploads.
+This project does not include ordering, a cart, a backend, or React Native screens. You cannot upload photos for new menu items.
+
+## Change log
+
+These are the main changes made since Part 2:
+
+- **14 November 2026:** Added editing and deletion, with validation, a confirmation step, and immediate updates.
+- **14 November 2026:** Added dish-name search and course filtering, including a clear button.
+- **14 November 2026:** Added menu totals, average price, and item counts by course.
+- **16 November 2026:** Added undo for deleted dishes and an option to restore the sample menu.
+- **16 November 2026:** Added average prices by course, availability figures, and lowest and highest prices.
+- **16 November 2026:** Added automated tests for search, filtering, statistics, and form validation.
+- **14–16 November 2026:** Improved validation and feedback messages, and clarified empty states.
+- **14 November 2026:** Reworked the project into strict TypeScript and separated components, screens, hooks, utilities, and data.
+- **16 November 2026:** Converted configuration files to TypeScript and removed `.env` and generated build files from Git.
+- Removed the cart, ordering pages, Settings, and Google sign-in from the Part 2 prototype because they are outside the final brief.
 
 ## References
 
