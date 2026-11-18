@@ -81,12 +81,12 @@ These are the main changes made since Part 2:
 
 ## References
 
-- Boduch, A. and Derks, R. (2023). *React and React Native: Build cross-platform JavaScript applications with native power for mobile, web and desktop*. 4th ed. Packt Publishing.
-- Eisenberg, A. (2022). *Learning React Native: Building Native Mobile Apps with JavaScript*. 2nd ed. O'Reilly Media.
-- React Native. [Documentation](https://reactnative.dev/docs/getting-started). Accessed 12 October 2026.
-- Google. [Material Design 3](https://m3.material.io/). Accessed 12 October 2026.
-- Apple. [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/). Accessed 12 October 2026.
-- Figma. [Figma](https://www.figma.com/). Accessed 12 October 2026.
-- diagrams.net. [Diagramming and whiteboarding](https://www.diagrams.net/). Accessed 12 October 2026.
-- Walker, J. R. (2021). *The Restaurant: From Concept to Operation*. 8th ed. Wiley.
-- Biørn-Hansen, A., Grønli, T. and Ghinea, G. (2020). 'A survey and taxonomy of core concepts and research challenges in cross-platform mobile development'. *ACM Computing Surveys*, 53(5), pp. 1–39.
+- Apple (n.d.) *Human Interface Guidelines*. Available at: https://developer.apple.com/design/human-interface-guidelines/ (Accessed: 12 October 2026).
+- Biørn-Hansen, A., Grønli, T. and Ghinea, G. (2020) 'A survey and taxonomy of core concepts and research challenges in cross-platform mobile development', *ACM Computing Surveys*, 53(5), pp. 1–39.
+- Boduch, A. and Derks, R. (2023) *React and React Native: Build cross-platform JavaScript applications with native power for mobile, web and desktop*. 4th edn. Packt Publishing.
+- diagrams.net (n.d.) *Diagramming and whiteboarding*. Available at: https://www.diagrams.net/ (Accessed: 12 October 2026).
+- Eisenberg, A. (2022) *Learning React Native: Building Native Mobile Apps with JavaScript*. 2nd edn. O'Reilly Media.
+- Figma (n.d.) *Figma*. Available at: https://www.figma.com/ (Accessed: 12 October 2026).
+- Google (n.d.) *Material Design 3*. Available at: https://m3.material.io/ (Accessed: 12 October 2026).
+- React Native (n.d.) *Documentation*. Available at: https://reactnative.dev/docs/getting-started (Accessed: 12 October 2026).
+- Walker, J. R. (2021) *The Restaurant: From Concept to Operation*. 8th edn. Wiley.
